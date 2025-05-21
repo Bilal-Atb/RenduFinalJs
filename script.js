@@ -6,15 +6,13 @@ function fetchinstrument(url) {
 
       let contenair = document.getElementById("product-contenair");
 
-      let principal = document.createElement("div");
-      principal.className = "principal";
-
-      principal.innerHTML = ` 
+      let principal = document.getElementById("principal");
+      
+      principal.innerHTML += ` 
               <h2>${data.nomEntreprise}</h2>
         <p>${data.accroche}</p>
         <button>${data.callToAction}</button>
             `;
-      contenair.appendChild(principal);
 
       data.produits.forEach((activities) => {
         let card = document.createElement("div");
@@ -29,9 +27,17 @@ function fetchinstrument(url) {
         let image = document.createElement("img");
         image.src = activities["image-url"];
 
-        card.appendChild(name);
-        card.appendChild(descript);
+        // card.appendChild(name);
+        // card.appendChild(descript);
+        let divContent = document.createElement("div");
+        divContent.classList.add("divContent");
+
+        divContent.appendChild(name);
+        divContent.appendChild(descript);
+
+        card.appendChild(divContent);
         card.appendChild(image);
+
         contenair.appendChild(card);
       });
 
