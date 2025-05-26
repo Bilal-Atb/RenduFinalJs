@@ -7,19 +7,22 @@ function fetchinstrument(url) {
       let contenair = document.getElementById("product-contenair");
 
       let principal = document.getElementById("principal");
-      
+
       principal.innerHTML += ` 
               <h2>${data.nomEntreprise}</h2>
         <p>${data.accroche}</p>
-        <button>${data.callToAction}</button>
+          <button>
+    <i class="fa-solid fa-cart-shopping"></i> ${data.callToAction}
+  </button>
             `;
 
       data.produits.forEach((activities) => {
         let card = document.createElement("div");
         card.classList.add("card");
 
+
         let name = document.createElement("h3");
-        name.textContent = activities.nom;
+        name.innerHTML = `<i class="fa-solid fa-music"></i> ${activities.nom}`;
 
         let descript = document.createElement("p");
         descript.textContent = activities.description;
@@ -48,10 +51,10 @@ function fetchinstrument(url) {
         carte.classList.add("temoin-carte");
 
         let prenom = document.createElement("h4");
-        prenom.textContent = temoignage.prenom;
+        prenom.innerHTML = `<i class="fa-solid fa-user"></i> ${temoignage.prenom}`;
 
         let commentaire = document.createElement("p");
-        commentaire.textContent = temoignage.commentaire;
+        commentaire.innerHTML = `<i class="fa-solid fa-comment"></i> ${temoignage.commentaire}`;
 
         carte.appendChild(prenom);
         carte.appendChild(commentaire);
